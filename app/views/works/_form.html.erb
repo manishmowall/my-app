@@ -1,0 +1,27 @@
+<%= form_with(model: work) do |form| %>
+  <% if work.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(work.errors.count, "error") %> prohibited this work from being saved:</h2>
+
+      <ul>
+        <% work.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :r_time %>
+    <%= form.number_field :r_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :r_date %>
+    <%= form.date_select :r_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
